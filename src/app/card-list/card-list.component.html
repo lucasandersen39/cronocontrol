@@ -1,0 +1,28 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Trabajado</th>
+            <th>Proyecto</th>
+            <th>Estado</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (card of cards; track card.id_card){
+        <tr>
+            <td>{{card.nombre}}</td>
+            <td>{{card.minutos | realTimeFormat }}</td>
+            <td>{{card.proyecto.nombre}}</td>
+            <td>{{card.estado}}</td>
+            @if (card.estado !== 'Finalizado'){
+            <td class="btnAccion">
+                <button class="btn btn-primary" (click)="activeCard(card)">Seleccionar</button>
+            </td>
+            }@else{
+            <td></td>
+            }
+        </tr>
+        }
+    </tbody>
+</table>

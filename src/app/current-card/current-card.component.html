@@ -1,0 +1,12 @@
+<h5>Card seleccionada</h5>
+@if(card){
+<p>{{card.nombre}}</p>
+<p>{{card.minutos | realTimeFormat}}</p>
+<p>{{card.estado}}</p>
+<p>{{card.descripcion}}</p>
+<p>{{card.proyecto.nombre}}</p>
+<p>{{card.proyecto.empresa}}</p>
+<app-reloj-cronometro [texto_pantalla]="card.nombre"></app-reloj-cronometro>
+}@else{
+<p>No hay card seleccionada</p>
+}

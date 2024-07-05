@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProyectListComponent } from './proyect-list.component';
+import { CronometroAboutComponent } from './cronometro-about.component';
 
-describe('ProyectListComponent', () => {
-  let component: ProyectListComponent;
-  let fixture: ComponentFixture<ProyectListComponent>;
+describe('CronometroAboutComponent', () => {
+  let component: CronometroAboutComponent;
+  let fixture: ComponentFixture<CronometroAboutComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ProyectListComponent]
+      imports: [CronometroAboutComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ProyectListComponent);
+    fixture = TestBed.createComponent(CronometroAboutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

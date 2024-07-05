@@ -1,0 +1,68 @@
+.btnreloj {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    border-radius: 50%;
+}
+
+.btnreloj svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pantalla {
+    background: #82858f;
+    // background: linear-gradient(to right, #3880fb 0%, #5682ff 50%, #1468ff 99%, #60b1f9 100%);
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    border: 5px solid rgb(0 0 0 / 10%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tituloPant {
+    display: block;
+    align-self: baseline;
+    width: 100%;
+    /*  flex: 1;
+    position: absolute;
+    top: 15px; */
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    color: #FFF;
+}
+
+.contenidoPantalla {
+    text-align: center;
+    width: 100%;
+    font-size: 38px;
+    text-transform: uppercase;
+    font-size: 26px;
+    line-height: 1;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: #FFF;
+}
+
+.textoPantalla {
+    font-size: 20px;
+}
+
+.colTableroPrinc {
+    height: 320px;
+    display: block;
+    // position: relative;
+}
+
+/* .btnFooterReloj {
+    position: absolute;
+    bottom: 5px;
+    right: 50%;
+    transform: translateX(50%);
+} */
