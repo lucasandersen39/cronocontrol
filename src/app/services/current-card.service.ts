@@ -17,7 +17,6 @@ export class CurrentCardService {
       this._cardSelected = card;
       this.cardSelected.next(this._cardSelected);
     }
-
   }
 
   desactiveCard(): void {

@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { ProyectListComponent } from './proyect-list/proyect-list.component';
-import { RelojCronometroComponent } from './reloj-cronometro/reloj-cronometro.component';
 import { CronometroControlComponent } from './cronometro-control/cronometro-control.component';
 
 @Component({

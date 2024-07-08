@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Proyecto } from '../models/Proyecto';
 import { Cronometro } from '../models/Cronometro';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RealTimeFormatPipe } from '../../pipes/real-time-format.pipe';
+import { RelojService } from '../services/reloj.service';
 
 @Component({
   selector: 'app-reloj-cronometro',
@@ -15,14 +16,18 @@ import { RealTimeFormatPipe } from '../../pipes/real-time-format.pipe';
 export class RelojCronometroComponent {
   @Input()
   texto_pantalla: string = '';
-
-  fecha_hoy: Date = new Date();
+  @Input()
   segundos_acumulados: number = 0;
+  /*  @Output()
+   segundos_acumuladosChange: EventEmitter<number> = new EventEmitter<number>(); */
+
+  reloj_iniciado: boolean = false;
+  fecha_hoy: Date = new Date();
   intervalId: any = null;
   fechaIntervalId: any = null;
-  private startTime: number | null = null;
+  startTime: number | null = null;
 
-  constructor() { }
+  constructor(private relojService: RelojService) { }
 
   ngOnInit() {
     this.updateFechaHoy();
@@ -35,36 +40,40 @@ export class RelojCronometroComponent {
   }
 
   ngOnDestroy() {
-    if (this.intervalId) {
-      clearInterval(this.intervalId);
-    }
-    if (this.fechaIntervalId) {
-      clearInterval(this.fechaIntervalId);
-    }
+    /*  if (this.intervalId) {
+       clearInterval(this.intervalId);
+     }
+     if (this.fechaIntervalId) {
+       clearInterval(this.fechaIntervalId);
+     } */
   }
 
   iniciar() {
     if (!this.startTime) {
       this.startTime = Date.now();
     }
+    if (this.segundos_acumulados !== 0) {
+      this.startTime = Date.now() - (this.segundos_acumulados * 1000);
+    }
     if (!this.intervalId) {
       this.intervalId = setInterval(() => {
         this.updateSegundosAcumulados();
       }, 1000);
     }
+    this.reloj_iniciado = true;
+    this.relojService.start();
   }
 
-  pausar() {
+  detener() {
     if (this.intervalId) {
       clearInterval(this.intervalId);
       this.intervalId = null;
     }
-  }
-
-  detener() {
-    this.pausar();
+    // this.segundos_acumuladosChange.emit(this.segundos_acumulados);
+    this.relojService.stop(this.segundos_acumulados);
+    this.reloj_iniciado = false;
     this.startTime = null;
-    this.segundos_acumulados = 0;
+    // this.segundos_acumulados = 0;
   }
 
   private updateSegundosAcumulados() {

@@ -1,0 +1,49 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3>Ingresar una nueva card</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-lg-6">
+                <form [formGroup]="formNewCard" (ngSubmit)="save_card()">
+                    <div class="mb-3">
+                        <label class="form-label">Nombre
+                            <input type="text" class="form-control" id="nombre_card"
+                                [ngClass]="{'is-invalid': campo_invalido('nombre','required')}"
+                                formControlName="nombre">
+                        </label>
+                        <div class="text-danger" *ngIf="campo_invalido('nombre','required')">
+                            Debe ingresar
+                            un nombre a la tarjeta.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Proyecto
+                            <input type="text" class="form-control" id="proyecto"
+                                [ngClass]="{'is-invalid': campo_invalido('proyecto','required')}"
+                                formControlName="proyecto">
+                        </label>
+                        <div class="text-danger" *ngIf="campo_invalido('proyecto','required')">
+                            Debe ingresar
+                            un proyecto a la tarjeta.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Estado
+                            <select name="estado_card" class="form-control" id="estado_card" formControlName="estado">
+                                <option value="Pendiente">Pendiente</option>
+                                <option value="En proceso">En Proceso</option>
+                                <option value="Finalizado">Finalizado</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" id="descripcion" id="descripcion" rows="3"
+                            formControlName="descripcion"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Agregar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

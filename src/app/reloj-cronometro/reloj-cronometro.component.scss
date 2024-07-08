@@ -60,6 +60,12 @@
     // position: relative;
 }
 
+.iniciado {
+    //Deshabilitar el boton de iniciar
+    pointer-events: none;
+    opacity: 0.5;
+}
+
 /* .btnFooterReloj {
     position: absolute;
     bottom: 5px;

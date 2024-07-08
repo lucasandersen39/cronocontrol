@@ -13,9 +13,9 @@
         <tr>
             <td>{{card.nombre}}</td>
             <td>{{card.minutos | realTimeFormat }}</td>
-            <td>{{card.proyecto.nombre}}</td>
+            <td>{{card.proyecto}}</td>
             <td>{{card.estado}}</td>
-            @if (card.estado !== 'Finalizado'){
+            @if (card.estado !== 'Finalizado' && actionActive){
             <td class="btnAccion">
                 <button class="btn btn-primary" (click)="activeCard(card)">Seleccionar</button>
             </td>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Card } from '../models/Card';
 import { CardDataService } from '../services/card-data.service';
 import { RealTimeFormatPipe } from '../../pipes/real-time-format.pipe';
@@ -16,13 +16,18 @@ import { CurrentCardService } from '../services/current-card.service';
 
 export class CardListComponent {
   cards: Card[] = [];
-
+  @Input()
+  actionActive: boolean = true;
   constructor(private currentCardService: CurrentCardService, private cardDataService: CardDataService) { }
 
   ngOnInit() {
-    console.log('CardListComponent.ngOnInit');
     this.cardDataService.getAllCards().subscribe(cards => {
       this.cards = cards;
+    });
+    this.cardDataService.cardAdd.subscribe(card => {
+      if (card) {
+        this.cards.push(card);
+      }
     });
   }
 
