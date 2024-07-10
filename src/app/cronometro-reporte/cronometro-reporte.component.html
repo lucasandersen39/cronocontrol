@@ -1,1 +1,26 @@
-<p>cronometro-reporte works!</p>
+<h1 class="my-3">Detalle de intervalos de trabajo</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Inicio</th>
+            <th>Fin</th>
+            <th>Tiempo trabajado</th>
+            <th>Card</th>
+            <th>Proyecto</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (registro of registros; track registro.id_registro){
+        <tr>
+            <td>{{registro.inicio | date:'short'}}</td>
+            <td>{{registro.fin | date:'short' }}</td>
+            <td>{{registro.segundos | realTimeFormat }}</td>
+            <td>{{registro.card.nombre}}</td>
+            <td>
+                {{registro.card.proyecto}}
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
