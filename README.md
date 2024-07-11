@@ -38,10 +38,11 @@ Esto nos generará una nueva card en estado pendiente y se agrega a nuestra list
 - Creación de proyecto angular
 - Ruteo
 - Componentes
+- Interfaces
+- Directivas y control de flujo
 - Servicios
 - Inyección de dependencias
 - Comunicación entre componentes mediante data binding y servicios
 - Conexión a la api mediante Http con GET, POST y PUT
 - Formularios
 - Pipe personalizados
-
